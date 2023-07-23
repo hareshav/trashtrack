@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== BOXICONS ===============-->
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file cdn link  -->
+    <style>
+         /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 4rem;
+
+ 
+  --hue: 174;
+  --sat: 63%;
+  --first-color: hsl(var(--hue), var(--sat), 40%);
+  --first-color-alt: hsl(var(--hue), var(--sat), 36%);
+  --title-color: hsl(var(--hue), 12%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #FFF;
+
+
+  --body-font: 'Open Sans', sans-serif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+  --tiny-font-size: .625rem;
+
+  
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --normal-font-size: 1rem;
+  }
+}*/
+*/
+/*=============== BASE ===============*/
+* {
+  
+  padding: 0;
+  margin: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+  padding: 4.5rem 0 2rem;
+}
+.pic
+{
+    width:50px;
+    
+}
+.section__title {
+  font-size: var(--h1-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.section__height {
+  height: 100vh;
+}
+
+/*=============== LAYOUT ===============*/
+.header {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/*=============== HEADER ===============*/
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--container-color);
+  z-index: var(--z-fixed);
+  transition: .4s;
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+    font-size: 30px;
+    color: black;
+}
+
+.logo span  {
+    color: orangered;
+    font-family: 'Lobster', cursive;
+}
+
+.nav__img {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-weight: bolder; 
+  border: 5px black  , solid ;
+  padding: 10px; 
+  font-family: sans-serif ;
+
+  
+}
+.header {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--container-color);
+    box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: .4s;
+  }
+}
+
+.nav__list, 
+.nav__link {
+  display: flex;
+}
+
+.nav__link {
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4px;
+  color: var(--title-color);
+  font-weight: 600;
+}
+
+.nav__list {
+  justify-content: space-around;
+}
+
+.nav__name {
+  font-size: var(--tiny-font-size);
+  /* display: none;*/ /* Minimalist design, hidden labels */
+}
+
+.nav__icon {
+  font-size: 1.5rem;
+}
+
+/*Active link*/
+.active-link {
+  position: relative;
+  color: var(--first-color);
+  transition: .3s;
+}
+
+/* Minimalist design, active link */
+/* .active-link::before{
+  content: '';
+  position: absolute;
+  bottom: -.5rem;
+  width: 4px;
+  height: 4px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+} */
+
+/* Change background header */
+.scroll-header {
+  box-shadow: 0 1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+/* Remove if you choose, the minimalist design */
+@media screen and (max-width: 320px) {
+  .nav__name {
+    display: none;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .nav__list {
+    justify-content: center;
+    column-gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding: 7rem 0 2rem;
+  }
+  .nav {
+    height: calc(var(--header-height) + 1.5rem); /* 4.5rem */
+  }
+  .nav__img {
+    display: none;
+  }
+  .nav__icon {
+    display: none;
+  }
+  .nav__name {
+    font-size: var(--normal-font-size);
+    /* display: block; */ /* Minimalist design, visible labels */
+  }
+  .nav__link:hover {
+    color: var(--first-color);
+  }
+
+  /* First design, remove if you choose the minimalist design */
+  .active-link::before {
+    content: '';
+    position: absolute;
+    bottom: -.75rem;
+    width: 4px;
+    height: 4px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+  }
+
+  /* Minimalist design */
+  /* .active-link::before{
+      bottom: -.75rem;
+  } */
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+nav button {
+    padding: 20px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    background: orangered;
+    color: white;
+    font-size: 17px;
+}
+
+nav button:hover {
+    background: black;
+    transition: 0.5s;
+    cursor: pointer;
+}
+/*services*/
+.services{
+    --orange:#F79F1F;
+    --text-color-1:#444;
+    --text-color-2:#666;
+    --bg-color-1:#fff;
+    --bg-color-2:#eee;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+
+}
+
+.services .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap:5rem;
+   padding-right: 5px;
+}
+
+.services .box-container .box{
+    background: var(--bg-color-1);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    padding:2rem;
+}
+
+.services .box-container .box span{
+    position: absolute;
+    top:.5rem; right:2rem;
+    color:var(--text-color-2);
+    font-weight: bolder;
+    font-size: 5rem;
+}
+
+.services .box-container .box i{
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color:#fff;
+    background: var(--orange);
+    border-radius: 50%;
+    margin-bottom: .5rem;
+}
+
+.services .box-container .box h3{
+    color:var(--text-color-1);
+    font-size: 2.3rem;
+    padding:.7rem 0;
+}
+
+
+/*service design heading*/
+.heading{
+    text-align: center;
+    padding-bottom: 2rem;
+    color:var(--text-color-1);
+    font-size: 4rem;
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom: 1rem; left: 0;
+    z-index: -1;
+    background: var(--orange);
+    height: 100%;
+    width: 100%;
+    clip-path: polygon(0 90%, 100% 83%, 100% 100%, 0% 100%);
+}
+main{
+  padding:20px;
+}
+
+
+.footer-image {
+  height: 617px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.bg-wrapper {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+}
+.section-header {
+  padding-top: 5.625em;
+  text-align: center;
+}
+.section-header h3 {
+  margin-bottom: 0.5em;
+}
+.section-header .line-red {
+  margin: 2.5em auto 2.9375em auto;
+}
+.line-red {
+  display: block;
+  width: 4em;
+  height: 0.1875em;
+  margin: 0 auto;
+  background: #f38181;
+}
+/* Main Header Styles */
+.main-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  background: transparent;
+}
+.main-header .header-wrapper {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+.main-header .header-wrapper .main-logo {
+  float: left;
+  font-weight: 700;
+  font-size: 1.875em;
+}
+.main-header .header-wrapper .main-menu {
+  float: right;
+  text-align: center;
+}
+.main-header .header-wrapper .main-menu li {
+  display: inline-block;
+  padding: 0.75em 1.875em;
+}
+.main-header .header-wrapper .main-menu li a {
+  padding-bottom: 0.75em;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.875em;
+}
+.main-header .header-wrapper .main-menu li a:hover {
+  color: #fce38a;
+  border-bottom: 0.1875em solid #fce38a;
+  transition: 0.1s;
+}
+.main-header .header-wrapper .main-menu li a span {
+  font-size: 1.2em;
+}
+.main-header .header-wrapper .main-menu li:last-child {
+  padding: 0.75em 0;
+}
+.main-header .header-wrapper .main-menu li:nth-child(6) a:hover,
+.main-header .header-wrapper .main-menu li:last-child a:hover {
+  border: none;
+}
+/* Section-1 Styles */
+#section-1 {
+  height: 38em;
+  color: #fff;
+  background-color: #222;
+}
+#section-1 .content-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#section-1 .content-slider input {
+  display: none;
+}
+#section-1 .content-slider .slider {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+}
+#section-1 .content-slider .slider .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 0.5s ease;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper {
+  height: 100%;
+  padding-top: 6em;
+  background-image: linear-gradient(rgba(243, 129, 129, 0.9), rgba(252, 227, 138, 0.9));
+  box-sizing: border-box;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
+  padding-bottom: 0.3em;
+  font-family: 'Kaushan Script', cursive;
+  font-weight: 400;
+  font-size: 2.5em;
+  text-transform: none;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
+  font-size: 6em;
+  line-height: 95%;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper .line {
+  display: block;
+  width: 4em;
+  height: 0.1875em;
+  margin: 2.5em auto;
+  background: #fff;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button {
+  padding-bottom: 5em;
+  z-index: 15 !important;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a {
+  padding: 0.5em 2em;
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.875em;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0.1875em solid #fff;
+}
+#section-1 .content-slider .slider .banner .banner-inner-wrapper .learn-more-button a:hover {
+  color: #e88382;
+  border-color: #e88382;
+  transition: 0.3s;
+}
+#section-1 .content-slider .slider #top-banner-1 {
+  background: url('https://checkboxes-demo.webdevs.co.ua/images/mogo/banner-1.png') no-repeat center center;
+  background-size: cover;
+}
+#section-1 .content-slider .slider #top-banner-2 {
+  background: url('https://checkboxes-demo.webdevs.co.ua/images/mogo/banner-2.png') no-repeat center center;
+  background-size: cover;
+}
+#section-1 .content-slider .slider #top-banner-3 {
+  background: url('https://checkboxes-demo.webdevs.co.ua/images/mogo/banner-3.png') no-repeat center center;
+  background-size: cover;
+}
+#section-1 .content-slider .slider #top-banner-4 {
+  background: url('https://checkboxes-demo.webdevs.co.ua/images/mogo/banner-4.png') no-repeat center center;
+  background-size: cover;
+}
+#section-1 .content-slider nav {
+  position: absolute;
+  bottom: 0.5em;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+}
+#section-1 .content-slider nav .controls {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+}
+#section-1 .content-slider nav .controls label {
+  position: relative;
+  display: inline-block;
+  width: 20%;
+  height: 3.1em;
+  overflow: hidden;
+  margin: 0 1em;
+  padding-top: 1em;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-size: 1em;
+  color: #f6eac5;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#section-1 .content-slider nav .controls label .progressbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #f6eac5;
+  z-index: 100;
+}
+#section-1 .content-slider nav .controls label .progressbar .progressbar-fill {
+  position: inherit;
+  width: inherit;
+  height: inherit;
+  margin-left: -100%;
+  background: #e88382;
+}
+#section-1 .content-slider nav .controls label span {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+#section-1 .content-slider nav .controls label:hover {
+  color: #e88382;
+}
+#section-1 .content-slider #banner1:checked ~ .slider #top-banner-1,
+#section-1 .content-slider #banner2:checked ~ .slider #top-banner-2,
+#section-1 .content-slider #banner3:checked ~ .slider #top-banner-3,
+#section-1 .content-slider #banner4:checked ~ .slider #top-banner-4 {
+  opacity: 1;
+  z-index: 1;
+}
+#section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1),
+#section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2),
+#section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3),
+#section-1 .content-slider #banner4:checked ~ nav la  bel:nth-of-type(4) {
+  cursor: default;
+  color: #fff;
+  transition: all 0.5s;
+}
+#section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1) .progressbar,
+#section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2) .progressbar,
+#section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3) .progressbar,
+#section-1 .content-slider #banner4:checked ~ nav label:nth-of-type(4) .progressbar {
+  background: #fff;
+}
+#section-1 .content-slider #banner1:checked ~ nav label:nth-of-type(1) .progressbar-fill,
+#section-1 .content-slider #banner2:checked ~ nav label:nth-of-type(2) .progressbar-fill,
+#section-1 .content-slider #banner3:checked ~ nav label:nth-of-type(3) .progressbar-fill,
+#section-1 .content-slider #banner4:checked ~ nav label:nth-of-type(4) .progressbar-fill {
+  animation: progressBarFill 5s linear;
+}
+/* Animations */
+@keyframes progressBarFill {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+/* Media Queries */
+@media only screen and (min-width: 1920px) {
+  body {
+    font-size: 22px;
+  }
+  .main-header .header-wrapper {
+    width: 57%;
+  }
+  #section-1 {
+    height: 46em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 12em;
+  }
+}
+@media only screen and (max-width: 1919px) {
+  body {
+    font-size: 20px;
+  }
+  .main-header .header-wrapper {
+    width: 60%;
+  }
+  #section-1 {
+    height: 43em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 11em;
+  }
+}
+@media only screen and (max-width: 1680px) {
+  body {
+    font-size: 18px;
+  }
+  .main-header .header-wrapper {
+    width: 65%;
+  }
+  #section-1 {
+    height: 40em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 9em;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  body {
+    font-size: 16px;
+  }
+  .main-header .header-wrapper {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1120px) {
+  .main-header .header-wrapper .main-menu li {
+    padding: 0.75em 1.4em;
+  }
+  #section-1 {
+    height: 35em;
+  }
+  #section-1 .content-slider nav {
+    bottom: -0.2em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 7em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .line {
+    margin: 2em auto;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 14px;
+  }
+  .main-header .header-wrapper .main-menu li {
+    padding: 0.75em 1.3em;
+  }
+  #section-1 .content-slider nav {
+    bottom: 0;
+  }
+  #section-1 .content-slider nav .controls {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .main-header .header-wrapper .main-menu li {
+    padding: 0.75em 0.9em;
+  }
+  #section-1 {
+    height: 29em;
+  }
+  #section-1 .content-slider nav {
+    bottom: -1em;
+  }
+  #section-1 .content-slider nav .controls {
+    width: 90%;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
+    font-size: 2em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
+    font-size: 4.5em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 5em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main-header .header-wrapper .main-menu li {
+    padding: 0.75em 0.5em;
+  }
+  #section-1 {
+    height: 27em;
+  }
+  #section-1 .content-slider nav .controls {
+    width: 100%;
+  }
+  #section-1 .content-slider nav .controls label {
+    width: 19%;
+    font-size: 0.8em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .line {
+    margin: 1.7em auto;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .main-header .header-wrapper {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .main-header .header-wrapper {
+    width: 97%;
+  }
+  .main-header .header-wrapper .main-logo {
+    display: none;
+  }
+  .main-header .header-wrapper .main-menu li {
+    padding: 0.2em 0.3em;
+  }
+  .main-header .header-wrapper .main-menu li:last-child,
+  .main-header .header-wrapper .main-menu li:nth-child(6) {
+    padding: 0.2em 0.7em;
+  }
+  #section-1 {
+    height: 26em;
+  }
+  #section-1 .content-slider nav {
+    bottom: -0.5em;
+  }
+  #section-1 .content-slider nav .controls label {
+    width: 40%;
+    font-size: 0.7em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
+    font-size: 1.5em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
+    font-size: 3em;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper .line {
+    margin: 1.7em auto;
+  }
+}
+.body {
+  display: grid;
+  grid-template-rows: 1fr 10rem auto;
+  grid-template-areas: "main" "." "footer";
+  overflow-x: hidden;
+ 
+  font-family: "Open Sans", sans-serif;
+}
+body .footer {
+  z-index: 1;
+  --footer-background:#ED5565;
+  display: grid;
+  position: relative;
+  grid-area: footer;
+  min-height: 12rem;
+}
+body .footer .bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+body .footer .bubbles .bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+          animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+body .footer .content {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 4rem;
+  padding: 2rem;
+  background: var(--footer-background);
+}
+body .footer .content a, body .footer .content p {
+  color: #F5F7FA;
+  text-decoration: none;
+}
+body .footer .content b {
+  color: white;
+}
+body .footer .content p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+body .footer .content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body .footer .content > div > div {
+  margin: 0.25rem 0;
+}
+body .footer .content > div > div > * {
+  margin-right: 0.5rem;
+}
+body .footer .content > div .image {
+  align-self: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.25rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+@-webkit-keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+@-webkit-keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}
+@keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}
+/*simple*/
+
+.container2 {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+/*   background: #4CAF50; */ /* Submit button - green */
+  background: grey;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+#contact button[type="submit"]:hover {
+/*   background: #43A047; */ /* Submit button - darker green when hover */
+  background: lightgrey;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.wrapper h1 {
+    padding: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.project {
+    display: flex;
+}
+.shop {
+    flex: 75%;
+}
+.box {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: all .6s ease;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.box:hover {
+    border: none;
+    transform: scale(1.01);
+}
+.box img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+.content {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+.content h3 {
+    margin-bottom: 30px;
+}
+.content h4 {
+    margin-bottom: 50px;
+}
+.btn-area {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: #3a71a9;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.btn-area:hover {
+    background-color: #76bfb6;
+    color: #fff;
+    font-weight: 600;
+}
+.unit input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+}
+.btn-area i {
+    margin-right: 5px;
+}
+.right-bar {
+    flex: 25%;
+    margin-left: 20px;
+    padding: 20px;
+    height: 400px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.right-bar hr {
+    margin-bottom: 25px;
+}
+.right-bar p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+.right-bar a {
+    background-color: #76bfb6;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 900;
+}
+.right-bar i {
+    margin-right: 15px;
+}
+.right-bar a:hover {
+    background-color: #3972a7;
+}
+@media screen and (max-width: 700px) {
+    .content h3 {
+        margin-bottom: 15px;
+    }
+    .content h4 {
+        margin-bottom: 20px;
+    }
+    .btn2 {
+        display: none;
+    }
+    .box {
+        height: 150px;
+    }
+    .box img {
+        height: 150px;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .project {
+        flex-direction: column;
+    }
+    .right-bar {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .wrapper {
+        max-width: 95%;
+    }
+}
+.button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .button {
+            width: calc(25% - 20px);
+            height: 100px;
+            background-color: #f72d7a;
+            border-radius: 13px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            font-weight: inherit;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            box-shadow: 10px;
+            
+        }
+
+
+
+
+
+
+    </style>
+
+        <!--=============== CSS ===============-->
+        <
+
+        <title>Dustbin</title>
+    </head>
+    <body>
+        <!--=============== HEADER ===============-->
+       
+        <header class="header" id="header">
+            <nav class="nav container">
+                <span class="pic">
+                <img src="https://www.iconbunny.com/icons/media/catalog/product/cache/2/thumbnail/600x/1b89f2fc96fc819c2a7e15c7e545e8a9/3/1/3166.12-dustbin-icon-iconbunny.jpg">
+                </span>
+<h2 class="logo">Trash<span>Track</span></h2>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{% url 'main' %}" class="nav__link active-link">
+                                <i class="bx bx-home-alt" style="font-size:1.5rem";></i>
+                                <span class="nav__name">Home</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">
+                                <i class='bx bx-user'style="font-size:1.5rem";></i>
+                                <span class="nav__name">About</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">
+                                
+                                <i class='bx bx-book-alt ' style="font-size:1.5rem";></i>
+                                <span class="nav__name">Services</span>
+                                
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#portfolio" class="nav__link">
+                                <i class='bx bx-briefcase-alt' style="font-size:1.5rem";></i>
+                                <span class="nav__name">Contact Us</span>
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#contactme" class="nav__link">
+                                <a href="login"><button>Sign In</button>
+                            </a>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+                    <main>
+            
+            <section class="section section__height" id="home">
+                
+
+                
+            <section id="section-1">
+    <div class="content-slider">
+      <input type="radio" id="banner1" class="sec-1-input" name="banner" checked>
+      <input type="radio" id="banner2" class="sec-1-input" name="banner">
+      <input type="radio" id="banner3" class="sec-1-input" name="banner">
+      <input type="radio" id="banner4" class="sec-1-input" name="banner">
+      <div class="slider">
+        <div id="top-banner-1" class="banner">
+          <div class="banner-inner-wrapper">
+            <h2>Smart Dust Bin</h2>
+            <h1>Welcome<br>to Trash Track</h1>
+            <div class="line"></div>
+            <div class="learn-more-button"><a href="#section-2">Learn More</a></div>
+          </div>
+        </div>
+        <div id="top-banner-2" class="banner">
+          <div class="banner-inner-wrapper">
+            <h2>What We Do</h2>
+            <h1>Collecting The <br>Waste</h1>
+            <div class="line"></div>
+            <div class="learn-more-button"><a href="#section-4">Learn More</a></div>
+          </div>
+        </div>
+        <div id="top-banner-3" class="banner">
+          <div class="banner-inner-wrapper">
+            <h2>To OverCome</h2>
+            <h1>The Overflow<br>Dust Bin</h1>
+            <div class="line"></div>
+            <div class="learn-more-button"><a href="#section-6">Learn More</a></div>
+          </div>
+        </div>
+        <div id="top-banner-4" class="banner">
+          <div class="banner-inner-wrapper">
+            <h2>Our Contacts</h2>
+            <h1>Welcome<br>to Trash Track</h1>
+            <div class="line"></div>
+            <div class="learn-more-button"><a href="#main-footer">Learn More</a></div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="controls">
+          <label for="banner1"><span class="progressbar"><span class="progressbar-fill"></span></span><span>01</span> Intro</label>
+          <label for="banner2"><span class="progressbar"><span class="progressbar-fill"></span></span><span>02</span> Work</label>
+          <label for="banner3"><span class="progressbar"><span class="progressbar-fill"></span></span><span>03</span> About</label>
+          <label for="banner4"><span class="progressbar"><span class="progressbar-fill"></span></span><span>04</span> Contacts</label>
+        </div>
+      </nav>
+    </div>
+  </section>
+  
+       
+            </section>
+<!-- adout -->
+            
+
+            
+            <section class="section section__height" id="skills">
+                <h2 class="section__title"></h2>
+                <section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>01</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Ariyalur</h3>
+             </a>
+        </div>
+   
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>02</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Chengalpattu</h3>
+        
+           </a>
+        </div>
+        
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>03</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Chennai</h3>
+        </a>
+           
+        </div>
+
+
+        <div class="box" data-aos="zoom-in">
+            <a href="Coimbature">
+            <span>04</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Coimbatore</h3>
+            </a>
+        </div>
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>05</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Cuddalore</h3>
+            </a>
+        </div>
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>06</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Dharmapuri</h3>
+        </a>
+            
+        </div>
+         <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>07</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Dindigul</h3>
+            </a>
+        </div>
+         <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>08</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Erode</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>09</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Kallakurichi</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>10</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Kancheepuram</h3>
+        </a>
+            
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>11</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Karur</h3>
+            
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>12</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Krishnagiri</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>13</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Madurai</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>14</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Mayiladuthurai</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>15</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Nagapattinam</h3>
+        </a>
+            
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>16</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Nagercoil</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>17</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Namakkal</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>18</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Perambalur</h3>
+            </a>
+        </div>
+
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>19</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Pudukkottai</h3>
+            </a>
+        </div>
+<div class="box" data-aos="zoom-in">
+    <a href="{% url 'null' %}">
+            <span>20</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Ramanathapuram</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>21</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Ranipet</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>22</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Salem</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>23</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Sivagangai</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>24</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Thanjavur</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>25</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Theni</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>26</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Thiruvallur</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>27</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Thiruvarur</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>28</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Thoothukudi</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>29</span>
+            <i class="fas fa-globe"></i>
+            <h3>Tirunelveli</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>30</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Tirupathur</h3>
+            </a>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>31</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Tiruppur</h3>
+            </a>
+        </div>
+        
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>32</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Tiruvannamalai</h3>
+            </a>
+        </div>
+        
+       
+        
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>33</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Vellore</h3>
+        </a>
+            
+        </div>
+        
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>34</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Viluppuram</h3>
+            </a>
+        </div>
+        
+        <div class="box" data-aos="zoom-in">
+            <a href="{% url 'null' %}">
+            <span>35</span>
+            <i class="fas fa-hotel"></i>
+            <h3>Virudhunagar</h3>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+            
+            <section class="section section__height" id="portfolio">
+                  
+                    <h1 class="heading"> Contact <span>Us</span> </h1>
+<div class="container2">  
+  <form id="contact" action="" method="post">
+    {% csrf_token %}
+    <h3>Contact Form</h3>
+    <h4>Contact us for further enquiry</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required autofocus name="name">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Address" type="text" name="add" tabindex="2" required>
+    </fieldset>
+
+    <fieldset>
+      <textarea placeholder="Type your message here...." tabindex="5" required name="message"></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+</div>
+    
+                </section>
+        
+        
+</div>
+
+<div class="body">
+<div class="main"></div>
+<div class="footer">
+  <div class="bubbles">
+    <div class="bubble" style="--size:4.514435949031996rem; --distance:6.7405882132805095rem; --position:104.35776931865841%; --time:2.2814395333509743s; --delay:-3.7099244597840233s;"></div>
+    <div class="bubble" style="--size:4.888806950728003rem; --distance:7.889364769388167rem; --position:51.86927787710315%; --time:2.0957794049207497s; --delay:-3.3839440878891915s;"></div>
+    <div class="bubble" style="--size:5.706031948856141rem; --distance:9.527145739108947rem; --position:60.18847187334093%; --time:2.5091207540835825s; --delay:-2.4872197888384138s;"></div>
+    <div class="bubble" style="--size:2.412556836501686rem; --distance:6.406132830308772rem; --position:27.29964577430271%; --time:2.6865248728635622s; --delay:-3.4740020338488415s;"></div>
+    <div class="bubble" style="--size:2.156752052282883rem; --distance:9.326049988117889rem; --position:102.0624884589913%; --time:2.9522805996953263s; --delay:-2.173257729856142s;"></div>
+    <div class="bubble" style="--size:4.406312446635rem; --distance:7.717148247711895rem; --position:44.39362611624664%; --time:3.4880315376278204s; --delay:-2.0761250902217463s;"></div>
+    <div class="bubble" style="--size:3.083398794053971rem; --distance:9.080044049706178rem; --position:42.35058337133036%; --time:3.1090534095157953s; --delay:-3.0718122524803917s;"></div>
+    <div class="bubble" style="--size:5.616208023709166rem; --distance:6.4942328669086145rem; --position:-4.794925825019081%; --time:2.977023216738306s; --delay:-2.739405188541693s;"></div>
+    <div class="bubble" style="--size:2.8822594207971814rem; --distance:7.492065060301041rem; --position:73.30543040017565%; --time:2.916506674204106s; --delay:-2.0883078054800794s;"></div>
+    <div class="bubble" style="--size:5.905998006276509rem; --distance:8.57421747974852rem; --position:51.70168825258885%; --time:2.5391171894005753s; --delay:-2.6285525769929623s;"></div>
+    <div class="bubble" style="--size:3.875127519420846rem; --distance:8.60835054255849rem; --position:30.38699155622499%; --time:3.784227386888921s; --delay:-3.5507966137798657s;"></div>
+    <div class="bubble" style="--size:4.385995735102567rem; --distance:7.2358947120114445rem; --position:70.34529232684379%; --time:2.5609530578822666s; --delay:-3.3934787165267624s;"></div>
+    <div class="bubble" style="--size:5.917182950561909rem; --distance:7.36210209086246rem; --position:64.52804866922901%; --time:2.563409267919525s; --delay:-2.3235906965322797s;"></div>
+    <div class="bubble" style="--size:3.032815045554913rem; --distance:9.390470839218409rem; --position:-0.8981343089580385%; --time:3.015961486372452s; --delay:-2.5229393927702395s;"></div>
+    <div class="bubble" style="--size:4.933994999405332rem; --distance:9.144485563199957rem; --position:55.98824496360844%; --time:2.4844144534491637s; --delay:-3.094044983296364s;"></div>
+    <div class="bubble" style="--size:4.797788145066524rem; --distance:7.808315420029978rem; --position:46.90534940560825%; --time:3.8528971433281285s; --delay:-3.2417125805214138s;"></div>
+    <div class="bubble" style="--size:5.025248713196774rem; --distance:7.44256169330705rem; --position:96.1156715116734%; --time:2.173859984851764s; --delay:-3.5265443906768517s;"></div>
+    <div class="bubble" style="--size:5.5985232357242rem; --distance:8.519409902553313rem; --position:104.10849454225021%; --time:3.0526890404742857s; --delay:-3.508174592955473s;"></div>
+    <div class="bubble" style="--size:4.0981601513721175rem; --distance:7.222377317905323rem; --position:45.96479201688469%; --time:2.923213555052992s; --delay:-2.1045243868765016s;"></div>
+    <div class="bubble" style="--size:2.3952929415287905rem; --distance:6.415611294477424rem; --position:68.10216820597036%; --time:2.987271978429428s; --delay:-3.578555850721057s;"></div>
+    <div class="bubble" style="--size:5.234270324340323rem; --distance:7.028271804093493rem; --position:39.12333731458371%; --time:2.540870281270972s; --delay:-2.169608166563032s;"></div>
+    <div class="bubble" style="--size:4.758022248845099rem; --distance:7.856893934090201rem; --position:19.044809797422285%; --time:2.965230042750202s; --delay:-3.234452205228025s;"></div>
+    <div class="bubble" style="--size:3.89224844534158rem; --distance:6.169602836967238rem; --position:79.84031659391351%; --time:2.6616040719946223s; --delay:-3.5632353665039327s;"></div>
+    <div class="bubble" style="--size:3.388652213678437rem; --distance:6.10224179606929rem; --position:49.70743706085639%; --time:3.5481094717501502s; --delay:-3.6610015461999326s;"></div>
+    <div class="bubble" style="--size:4.052657876028886rem; --distance:8.80851168275336rem; --position:92.55217326320957%; --time:3.41467926434947s; --delay:-3.512901209023516s;"></div>
+    <div class="bubble" style="--size:4.802238359854044rem; --distance:7.399177155437645rem; --position:36.09594440310798%; --time:3.292073163475116s; --delay:-3.355474314909824s;"></div>
+    <div class="bubble" style="--size:2.563364589446107rem; --distance:6.2473714470010915rem; --position:60.24103055091595%; --time:2.586941438847787s; --delay:-2.0859689339591667s;"></div>
+    <div class="bubble" style="--size:2.7731892789755923rem; --distance:8.329978315892081rem; --position:16.004367330293796%; --time:3.709004282240762s; --delay:-3.160414575288542s;"></div>
+    <div class="bubble" style="--size:5.330731681331661rem; --distance:7.70122441138845rem; --position:33.611815725200344%; --time:2.0557344426588235s; --delay:-2.3935250927884772s;"></div>
+    <div class="bubble" style="--size:2.653084367707339rem; --distance:7.281438487700101rem; --position:61.82529525454571%; --time:2.510421880359795s; --delay:-2.080491021847138s;"></div>
+    <div class="bubble" style="--size:2.907044621338396rem; --distance:8.395456152151276rem; --position:87.72312761225629%; --time:3.6661497613009426s; --delay:-2.058428293051074s;"></div>
+    <div class="bubble" style="--size:3.792745412347795rem; --distance:8.481270274233577rem; --position:16.18614376392522%; --time:3.9482894752970172s; --delay:-2.539695394440118s;"></div>
+    <div class="bubble" style="--size:4.997539527036667rem; --distance:7.552782344891778rem; --position:37.804191367899186%; --time:3.213152315197236s; --delay:-3.8722768048314458s;"></div>
+    <div class="bubble" style="--size:4.7044414765840905rem; --distance:8.828147872723406rem; --position:28.726696625674244%; --time:3.424882006945757s; --delay:-3.4357538966941736s;"></div>
+    <div class="bubble" style="--size:5.018673301832265rem; --distance:6.357598483721818rem; --position:61.49182358626845%; --time:2.669448578658402s; --delay:-3.55588579938104s;"></div>
+    <div class="bubble" style="--size:2.5827139464408813rem; --distance:8.69977965698612rem; --position:65.62200423482706%; --time:3.33934083952772s; --delay:-3.519736958385482s;"></div>
+    <div class="bubble" style="--size:5.004429656325535rem; --distance:6.532742561469486rem; --position:71.35020685683743%; --time:2.8871829231760677s; --delay:-2.0178801440292897s;"></div>
+    <div class="bubble" style="--size:4.217576500335222rem; --distance:7.613041357322525rem; --position:79.7385395264363%; --time:3.747697470467333s; --delay:-3.7818651186136116s;"></div>
+    <div class="bubble" style="--size:5.582772193335282rem; --distance:7.4065191063304034rem; --position:83.25849760329915%; --time:3.1821963788856324s; --delay:-2.75933509601307s;"></div>
+    <div class="bubble" style="--size:5.469430998728087rem; --distance:6.740670473065355rem; --position:11.032437223618963%; --time:2.5339046255613913s; --delay:-3.8628927612821355s;"></div>
+    <div class="bubble" style="--size:2.394759035482587rem; --distance:9.220947371945089rem; --position:11.455949977455603%; --time:3.0727632951170194s; --delay:-3.032684127984806s;"></div>
+    <div class="bubble" style="--size:3.9885842543608563rem; --distance:6.439097835568441rem; --position:76.710436959445%; --time:2.5100524904216455s; --delay:-3.961563969706791s;"></div>
+    <div class="bubble" style="--size:2.3895161798020865rem; --distance:8.933690712268493rem; --position:28.419846613412943%; --time:3.582276400699044s; --delay:-3.9142950645518058s;"></div>
+    <div class="bubble" style="--size:5.680989183680901rem; --distance:9.292695902588253rem; --position:81.32860826135114%; --time:3.8432540760739826s; --delay:-3.6521465633964616s;"></div>
+    <div class="bubble" style="--size:3.9442650172349243rem; --distance:7.457242463398788rem; --position:93.52122478336925%; --time:2.6297101756221295s; --delay:-3.7744451378900696s;"></div>
+    <div class="bubble" style="--size:3.0122670893611447rem; --distance:6.215226497849811rem; --position:57.447814307861655%; --time:3.2040922702762558s; --delay:-2.9667178252406474s;"></div>
+    <div class="bubble" style="--size:2.9739326833970265rem; --distance:6.02833903623051rem; --position:24.200096544006893%; --time:2.012290302395626s; --delay:-2.335237600431037s;"></div>
+    <div class="bubble" style="--size:5.004378280107749rem; --distance:8.774863413022183rem; --position:60.34667139614049%; --time:2.5911329706766146s; --delay:-3.099627106911049s;"></div>
+    <div class="bubble" style="--size:3.827687597965352rem; --distance:6.6644338718481455rem; --position:45.2766130792861%; --time:2.5596096740576413s; --delay:-2.470330251917392s;"></div>
+    <div class="bubble" style="--size:5.9280755537850185rem; --distance:6.9105672781627rem; --position:8.362993656182047%; --time:2.143469384882117s; --delay:-3.5358340235631385s;"></div>
+    <div class="bubble" style="--size:5.231986090684319rem; --distance:7.088517814675758rem; --position:79.56877997133557%; --time:2.3208238262825183s; --delay:-3.8845277102374367s;"></div>
+    <div class="bubble" style="--size:3.9985836292640338rem; --distance:8.14633037066784rem; --position:29.068649997272907%; --time:2.50845039542954s; --delay:-3.261341496538877s;"></div>
+    <div class="bubble" style="--size:2.8779257988270492rem; --distance:7.732791408387516rem; --position:9.678342368745064%; --time:3.1781186703725957s; --delay:-3.152816570751913s;"></div>
+    <div class="bubble" style="--size:3.6595966507829765rem; --distance:6.609330116353417rem; --position:45.42859372419686%; --time:2.381065461223823s; --delay:-2.471788043131234s;"></div>
+    <div class="bubble" style="--size:5.113122365613434rem; --distance:6.680280597583173rem; --position:64.22771689147599%; --time:2.3707644656122775s; --delay:-2.685498917328036s;"></div>
+    <div class="bubble" style="--size:5.770133274627172rem; --distance:9.79431787902994rem; --position:64.33719634236208%; --time:2.0847614643374s; --delay:-3.948053913995417s;"></div>
+    <div class="bubble" style="--size:3.9002630898990835rem; --distance:7.937065592476649rem; --position:35.580348916629404%; --time:2.7528496438921346s; --delay:-2.357248086097472s;"></div>
+    <div class="bubble" style="--size:2.223737365964519rem; --distance:9.007159657067989rem; --position:23.445338034150478%; --time:2.753712864823941s; --delay:-3.5536112530033415s;"></div>
+    <div class="bubble" style="--size:3.592020875358995rem; --distance:8.760458029021546rem; --position:46.94358642386382%; --time:3.7128615560622418s; --delay:-2.1384114496582036s;"></div>
+    <div class="bubble" style="--size:4.596308433697824rem; --distance:9.334135239920176rem; --position:62.55502253290881%; --time:2.1569076444133892s; --delay:-3.4305937869374863s;"></div>
+    <div class="bubble" style="--size:4.057870925842711rem; --distance:9.520090024690258rem; --position:67.02816066779678%; --time:2.136211476781537s; --delay:-2.4601990097795485s;"></div>
+    <div class="bubble" style="--size:2.8332243540440984rem; --distance:7.628118707852031rem; --position:90.40765243387517%; --time:2.9667391306993163s; --delay:-2.0245393873791366s;"></div>
+    <div class="bubble" style="--size:5.132588239200685rem; --distance:6.2423142285133rem; --position:-3.00227356709057%; --time:2.612531011237608s; --delay:-3.9837292946601375s;"></div>
+    <div class="bubble" style="--size:3.548194320119186rem; --distance:9.037660771210001rem; --position:41.25008430121056%; --time:3.7961958163726774s; --delay:-3.8403426165289836s;"></div>
+    <div class="bubble" style="--size:3.4430991748985758rem; --distance:8.031015020268397rem; --position:85.71563676913424%; --time:2.1455908420031973s; --delay:-2.60982979805893s;"></div>
+    <div class="bubble" style="--size:5.964527907014673rem; --distance:8.900695342691154rem; --position:39.93043412515723%; --time:3.1456659469441246s; --delay:-2.721855795302569s;"></div>
+    <div class="bubble" style="--size:2.699048464169933rem; --distance:7.303651399385179rem; --position:-2.6123484877122505%; --time:3.2960376618617335s; --delay:-2.646847712464434s;"></div>
+    <div class="bubble" style="--size:2.5139211859424835rem; --distance:7.329723415234316rem; --position:12.026282778823582%; --time:3.4601873833546755s; --delay:-3.7332034712937148s;"></div>
+    <div class="bubble" style="--size:3.803879298822908rem; --distance:7.828637532216257rem; --position:60.467215532697224%; --time:2.4319648389887574s; --delay:-2.136157690065267s;"></div>
+    <div class="bubble" style="--size:2.4677153747187974rem; --distance:6.6690827129702654rem; --position:31.53350021892546%; --time:3.685893692181198s; --delay:-2.5886399239186533s;"></div>
+    <div class="bubble" style="--size:4.779409970056939rem; --distance:9.698109667900967rem; --position:22.193016066330507%; --time:2.2208792712822647s; --delay:-2.0213728264810498s;"></div>
+    <div class="bubble" style="--size:5.180116097432546rem; --distance:6.581774197525664rem; --position:59.484471303785966%; --time:3.2330294092929073s; --delay:-3.723431310937098s;"></div>
+    <div class="bubble" style="--size:4.213236236821245rem; --distance:9.463200354206252rem; --position:45.751264855327825%; --time:2.4844154321789875s; --delay:-3.3709466228281806s;"></div>
+    <div class="bubble" style="--size:4.265075686483852rem; --distance:8.912832986388171rem; --position:-4.536006604900223%; --time:2.3604763945181984s; --delay:-2.149363335389901s;"></div>
+    <div class="bubble" style="--size:3.758781577851531rem; --distance:9.628368160968652rem; --position:40.442887992900886%; --time:3.111228957574497s; --delay:-3.5100484254944093s;"></div>
+    <div class="bubble" style="--size:5.428033150858225rem; --distance:8.187552254977827rem; --position:28.478031326470436%; --time:2.345476848836201s; --delay:-3.730150875303173s;"></div>
+    <div class="bubble" style="--size:5.8515682365787205rem; --distance:9.50501956726399rem; --position:7.328955467198261%; --time:3.4973791272241703s; --delay:-2.022542627505522s;"></div>
+    <div class="bubble" style="--size:3.694496067666101rem; --distance:7.1060152805362655rem; --position:40.27840246626343%; --time:3.2811788435402036s; --delay:-2.466018663005302s;"></div>
+    <div class="bubble" style="--size:4.890340865827983rem; --distance:8.501234120291837rem; --position:78.57025670031241%; --time:2.1979201987736587s; --delay:-2.5031568066326297s;"></div>
+    <div class="bubble" style="--size:2.508027780231081rem; --distance:6.1456443848363564rem; --position:75.41288651774657%; --time:2.933222954180414s; --delay:-2.874922904805542s;"></div>
+    <div class="bubble" style="--size:2.611957715966658rem; --distance:6.342945622789556rem; --position:49.77145712139331%; --time:2.358238763525001s; --delay:-3.464631298397572s;"></div>
+    <div class="bubble" style="--size:4.6719456867044284rem; --distance:9.727783201115649rem; --position:52.01363242061975%; --time:2.985581893575406s; --delay:-3.3973274904564956s;"></div>
+    <div class="bubble" style="--size:3.8187454801089187rem; --distance:6.342976963720645rem; --position:43.936998495415935%; --time:2.2033091765721537s; --delay:-3.597859538521595s;"></div>
+    <div class="bubble" style="--size:4.3024340977126rem; --distance:9.675521710699666rem; --position:99.41684960005124%; --time:3.391263405031865s; --delay:-3.8217326777373115s;"></div>
+    <div class="bubble" style="--size:2.632304406360255rem; --distance:9.84326086320452rem; --position:39.95652292107849%; --time:2.715089983190015s; --delay:-3.359048037662523s;"></div>
+    <div class="bubble" style="--size:2.8985904753181506rem; --distance:6.1819503900083435rem; --position:21.886035854970928%; --time:3.6510231256380403s; --delay:-2.7159601956461246s;"></div>
+    <div class="bubble" style="--size:3.6713952459998334rem; --distance:6.854341998588213rem; --position:4.08954400539842%; --time:3.4117130257435866s; --delay:-3.597384555160396s;"></div>
+    <div class="bubble" style="--size:3.1524349172057597rem; --distance:7.710672335331868rem; --position:11.275410721456986%; --time:3.6484753150512947s; --delay:-3.0258427762275715s;"></div>
+    <div class="bubble" style="--size:5.081619541091781rem; --distance:7.50663049166225rem; --position:86.02286707386223%; --time:3.353574781652461s; --delay:-3.4363293138363833s;"></div>
+    <div class="bubble" style="--size:2.896071977457738rem; --distance:6.347447202979585rem; --position:87.84178094015678%; --time:3.055231877822101s; --delay:-3.7167240425372627s;"></div>
+    <div class="bubble" style="--size:3.352824706997464rem; --distance:6.953955024749489rem; --position:84.73667985001578%; --time:2.677058871323563s; --delay:-3.34389928958992s;"></div>
+    <div class="bubble" style="--size:2.0863819106744934rem; --distance:7.186403219456698rem; --position:65.13318681390986%; --time:2.9929791910674544s; --delay:-2.361371266076803s;"></div>
+    <div class="bubble" style="--size:3.4685940978070686rem; --distance:7.5202117319496455rem; --position:67.68007210142304%; --time:3.770336906383182s; --delay:-3.08467217963718s;"></div>
+    <div class="bubble" style="--size:3.35288598256125rem; --distance:9.52590906232373rem; --position:18.653642545192042%; --time:2.5659081030601256s; --delay:-3.568950108895037s;"></div>
+    <div class="bubble" style="--size:2.225914744266138rem; --distance:9.111742499288571rem; --position:48.56145837128892%; --time:3.8670645556253205s; --delay:-3.0830507511133316s;"></div>
+    <div class="bubble" style="--size:3.2431097847129067rem; --distance:6.830649346166325rem; --position:40.92846476924923%; --time:3.522572425345217s; --delay:-3.8606792149733966s;"></div>
+    <div class="bubble" style="--size:3.5064231392475858rem; --distance:6.609744387255275rem; --position:63.73902238189581%; --time:2.2033626166846427s; --delay:-3.359575074138552s;"></div>
+    <div class="bubble" style="--size:2.973472375977569rem; --distance:9.137442276815019rem; --position:32.65001168525339%; --time:2.20709574766342s; --delay:-3.273370727783076s;"></div>
+    <div class="bubble" style="--size:3.6599263293007134rem; --distance:7.730493377908467rem; --position:50.218535295838684%; --time:3.262548282600816s; --delay:-2.087235013210508s;"></div>
+    <div class="bubble" style="--size:3.0909003901811127rem; --distance:8.265366967768653rem; --position:7.183922118582142%; --time:3.6031277790397804s; --delay:-3.2773574468797824s;"></div>
+    <div class="bubble" style="--size:5.966681755010148rem; --distance:6.737411710313614rem; --position:51.20755606055219%; --time:2.6757559734462206s; --delay:-2.055163819108809s;"></div>
+    <div class="bubble" style="--size:3.162519028571718rem; --distance:7.710515081999786rem; --position:5.034047453634578%; --time:3.2529384738426543s; --delay:-3.499848373936408s;"></div>
+    <div class="bubble" style="--size:2.7338725056945954rem; --distance:7.3503288168525795rem; --position:37.958483907279295%; --time:3.8040554108791977s; --delay:-2.427837777713794s;"></div>
+    <div class="bubble" style="--size:5.3453927155544765rem; --distance:9.112658098195979rem; --position:70.31440160492704%; --time:3.176947115764944s; --delay:-2.1975224322257825s;"></div>
+    <div class="bubble" style="--size:5.4590627300737795rem; --distance:8.593183699762221rem; --position:-1.6846806257181401%; --time:3.0257182429027316s; --delay:-3.372840444808257s;"></div>
+    <div class="bubble" style="--size:5.633741267932288rem; --distance:7.338166748309457rem; --position:13.740889401385346%; --time:2.830824553758044s; --delay:-3.2653612471831726s;"></div>
+    <div class="bubble" style="--size:3.960261685509254rem; --distance:6.5892763011319095rem; --position:47.983455094761894%; --time:2.005329458358267s; --delay:-3.5897695278894504s;"></div>
+    <div class="bubble" style="--size:2.033513445336313rem; --distance:8.0858031737529rem; --position:44.277568541372254%; --time:2.872328423412678s; --delay:-2.883867364508754s;"></div>
+    <div class="bubble" style="--size:5.709533191999734rem; --distance:6.203011782287092rem; --position:80.67271074517441%; --time:2.343187064346968s; --delay:-2.708637407265608s;"></div>
+    <div class="bubble" style="--size:3.0853620547533884rem; --distance:8.616573677804283rem; --position:21.126461713028622%; --time:2.642435261525954s; --delay:-2.9459390862694677s;"></div>
+    <div class="bubble" style="--size:5.726139913013859rem; --distance:9.259392395529705rem; --position:60.355611055670934%; --time:2.490479341040317s; --delay:-2.5978667534331956s;"></div>
+    <div class="bubble" style="--size:4.162793621696891rem; --distance:7.034528979740869rem; --position:19.511987411688267%; --time:3.196037503110556s; --delay:-3.284371857044192s;"></div>
+    <div class="bubble" style="--size:4.52344256070155rem; --distance:9.397946291731623rem; --position:56.96182012762179%; --time:3.678403049305527s; --delay:-2.775833164956394s;"></div>
+    <div class="bubble" style="--size:3.49632259150202rem; --distance:6.967230322612402rem; --position:2.5559520377399085%; --time:3.1246914002381003s; --delay:-2.70210141664727s;"></div>
+    <div class="bubble" style="--size:3.0929849517454757rem; --distance:6.866251072596383rem; --position:25.59647239219426%; --time:3.5092710716836764s; --delay:-2.4743980715367293s;"></div>
+    <div class="bubble" style="--size:5.126628975471895rem; --distance:6.108051274507221rem; --position:58.94945844785971%; --time:2.273244783981753s; --delay:-3.123609358417393s;"></div>
+    <div class="bubble" style="--size:5.130783270035619rem; --distance:8.726419407766418rem; --position:59.11337905553091%; --time:3.0005449609378267s; --delay:-2.808884012213735s;"></div>
+    <div class="bubble" style="--size:2.6838668815058737rem; --distance:9.21933436815966rem; --position:6.649647890547396%; --time:3.8184860328382517s; --delay:-2.8188454165032137s;"></div>
+    <div class="bubble" style="--size:2.0198247457102614rem; --distance:7.359947321023086rem; --position:78.56868546681235%; --time:3.135565135152951s; --delay:-3.8899494733757667s;"></div>
+    <div class="bubble" style="--size:4.871598168244312rem; --distance:7.647594063219558rem; --position:36.72860888849226%; --time:2.4837375185600674s; --delay:-2.9536085491774764s;"></div>
+    <div class="bubble" style="--size:3.050411710261578rem; --distance:9.918739683886749rem; --position:1.0870348224612325%; --time:3.2941423219168118s; --delay:-3.492517013591709s;"></div>
+    <div class="bubble" style="--size:3.9235884578713236rem; --distance:9.81985482653717rem; --position:29.837140511418042%; --time:3.886537391756204s; --delay:-3.787949149215131s;"></div>
+    <div class="bubble" style="--size:2.23510842524061rem; --distance:6.847346242379868rem; --position:-0.9528862497370376%; --time:3.63449524194183s; --delay:-3.2252298039681073s;"></div>
+    <div class="bubble" style="--size:5.716535389837382rem; --distance:9.855407490752569rem; --position:31.34200982562922%; --time:3.1403301245120607s; --delay:-3.1935864366921125s;"></div>
+    <div class="bubble" style="--size:3.6449987300914763rem; --distance:6.562369261849966rem; --position:-3.463674612516394%; --time:2.7080017281163s; --delay:-3.3723494919452874s;"></div>
+    <div class="bubble" style="--size:2.153785699753266rem; --distance:7.40288019126549rem; --position:42.96814529766224%; --time:2.3086459803595365s; --delay:-3.801731510772656s;"></div>
+    <div class="bubble" style="--size:5.328046362616188rem; --distance:7.942670967817006rem; --position:41.29676626010864%; --time:2.6091605071653454s; --delay:-2.9810143372444413s;"></div>
+    <div class="bubble" style="--size:3.387036995352644rem; --distance:7.374461387545359rem; --position:37.94111332633144%; --time:2.077788410636548s; --delay:-2.1687816376867106s;"></div>
+  </div>
+  <div class="content">
+    <div>
+        <div class="logo"><b><center>Trash <span>Track</span></center></b></div>
+        <div>Team members</div>
+      <div><b>Barath Raj</b><a href="#">P</a><a href="#">Team Leader</a><a href="#">and </a><a href="#">Front End </a><a href="#"></a></div>
+      <div><b>Arun Kumar</b><a href="#">R</a><a href="#">Map</a><a href="#">Navigation </a><a href="#">and Interfacing</a></div>
+      <div><b>Haresh</b><a href="#">A.V</a><a href="#">Backend</a><a href="#">and</a><a href="#">data base</a></div>
+      <div><b>Ashwand</b><a href="#">Narayanan</a><a href="#">s</a><a href="#">Hardware</a><a href="#">and data base</a></div>
+    </div>
+    <div><a class="image" href="https://codepen.io/z-" target="_blank" style="background-image: url(&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/199011/happy.svg&quot;)"></a>
+      <p>Thank You</p>
+    </div>
+  </div>
+</div>
+<svg style="position:fixed; top:100vh">
+  <defs>
+    <filter id="blob">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+      
+    </filter>
+  </defs>
+</svg>
+</div>
+
+                   
+            </div>
+            </section>
+        </section>
+    </main>
+</body>
+        </main>
+
+         
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+<script>
+
+AOS.init({
+    duration:800,
+    delay:400
+});
+
+</script>
+
+    
+
+        <!--=============== MAIN JS ===============-->
+        <script type="text/javascript">
+            /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 50,
+            sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+function scrollHeader(){
+    const header = document.getElementById('header')
+    // When the scroll is greater than 80 viewport height, add the scroll-header class to the header tag
+    if(this.scrollY >= 80) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
+// serivece scroll
+
+window.onscroll = () =>{
+    navbar.classList.remove('active');
+    loginForm.classList.remove('active');
+    searchForm.classList.remove('active');
+}
+
+let themeBtn = document.querySelector('#theme-btn');
+
+themeBtn.onclick = () =>{
+    themeBtn.classList.toggle('fa-sun');
+
+    if(themeBtn.classList.contains('fa-sun')){
+        document.body.classList.add('active');
+    }else{
+        document.body.classList.remove('active');
+    }
+
+};
+
+var swiper = new Swiper(".review-slider", {
+    loop:true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+        delay: 5500,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+    },
+});
+
+        </script>
+    </body>
+</html>

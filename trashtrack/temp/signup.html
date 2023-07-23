@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp</title>
+    <!-- style -->
+    
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/b2c628a9e3.js" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*  Login Page  */
+#login {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    padding: 4% 8%;
+    display: flex;
+    background: linear-gradient(45deg, #FF416C, #FF4B2B);
+}
+
+#login .imagebx {
+    width: 50%;
+    height: 100%;
+    background-image: url("/image/login_bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: scroll;
+    background-origin: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login .imagebx .box {
+    width: 80%;
+    height: auto;
+    background: #fff;
+    color: #212121;
+    font-size: 20px;
+}
+
+#login .imagebx .box p {
+    border: 4px solid #212121;
+    margin: 20px;
+    padding: 20px;
+}
+
+#login .contentbx {
+    width: 50%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#login .contentbx h2 {
+    color: #000;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    border-bottom: 4px solid #FF4B2B;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+#login .contentbx p {
+    margin: 8px;
+}
+
+#login .contentbx p a {
+    color: #FF4B2B;
+    text-decoration: none;
+}
+
+
+input,
+textarea,
+select,
+button {
+    color: #FF4B2B;
+    font-size: 16px;
+}
+
+form {
+    width: 80%;
+}
+
+
+.form-group {
+    display: flex;
+}
+
+.form-group input {
+    width: 50%;
+}
+
+.form-group input:first-child {
+    margin-right: 25px;
+}
+
+.form-wrapper {
+    position: relative;
+}
+
+
+
+.form-control {
+    border: 2px solid #000;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+.form-control::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #333;
+}
+
+.form-control::-moz-placeholder {
+    font-size: 16px;
+    color: #333;
+}
+
+.form-control:-ms-input-placeholder {
+    font-size: 16px;
+    color: #333;
+}
+
+.form-control:-moz-placeholder {
+    font-size: 16px;
+    color: #333;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    padding-left: 20px;
+    background: #fff;
+}
+
+select option[value=""][disabled] {
+    display: none;
+}
+
+button {
+    border: none;
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #FF4B2B;
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+
+button:hover {
+    background: #ff1c51;
+}
+
+
+
+@media (max-width: 790px) {
+    #login {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    #login .imagebx {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        padding: 3%;
+
+    }
+
+    #login .contentbx {
+        width: 100%;
+        height: auto;
+        padding: 3%;
+
+    }
+}
+.col{
+    
+    color: white;
+    font-size: 50px;
+}
+
+
+.col span  {
+    color: greenyellow;
+    font-family: 'Lobster', cursive;
+
+}
+</style>
+
+<body>
+    <section id="login">
+        <div class="col">
+            <!-- <img src="image/login_bg.jpg" alt=""> -->
+            <b><center>Trash<span>Track</span></center></b>
+        </div>
+        <div class="imagebx">
+
+            <div class="box">
+                <p>“Refuse what you do not need; reduce what you do need; reuse what you consume; recycle what you cannot refuse, reduce, or reuse; and rot (compost) the rest.” <b>---Bea Johson </b>
+                </p>
+            </div>
+        </div>
+        <div class="contentbx">
+            <form action="" method="post">
+                {% csrf_token %}
+                <h2>Registration Form</h2>
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" class="form-control" name="fname">
+                    <input type="text" placeholder="Last Name" class="form-control" name="lname">
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Username" class="form-control" name="uname">
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" class="form-control" name="email">
+
+                </div>
+                <div class="form-wrapper">
+                    <select name="" id="" class="form-control">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="femal">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" class="form-control" name="password">
+                    <i class="zmdi zmdi-lock"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Confirm Password" class="form-control">
+
+                </div>
+                <button>Register</button>
+            </form>
+
+            <p>Back to <a href="{% url 'login' %}">Login</a></p>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
